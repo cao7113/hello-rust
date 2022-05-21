@@ -1,0 +1,30 @@
+# https://taskfile.dev
+version: "3"
+tasks:
+  play: open https://play.rust-lang.org/
+  hub: open crates.io
+
+  create-hello: cargo new hello
+
+  # first try this way
+  install:
+    # Rustup: the Rust installer and version management tool
+    # Cargo: the Rust build tool and package manager
+    desc: install rust as https://www.rust-lang.org/learn/get-started
+    status:
+      - cargo --version
+    cmds:
+      - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+      - source $HOME/.cargo/env
+      - cargo --version
+      - rustc --version
+      - ls ~/.cargo/bin
+
+  brew-install: brew install rust
+
+  update:
+    deps:
+      - install
+    cmds:
+      - rustup update
+  uninstall: rustup self uninstall
