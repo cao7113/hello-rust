@@ -2,23 +2,29 @@
 version: "3"
 tasks:
   play: open https://play.rust-lang.org/
-  hub: open crates.io
+  hub: open https://crates.io
+  book: rustup doc --book
+  mod: rustup doc --std
 
   create-hello: cargo new hello
 
-  # first try this way
   install:
-    # Rustup: the Rust installer and version management tool
-    # Cargo: the Rust build tool and package manager
-    desc: install rust as https://www.rust-lang.org/learn/get-started
+    desc: install rust as https://www.rust-lang.org/learn/get-started in rustup way
     status:
       - cargo --version
     cmds:
       - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
       - source $HOME/.cargo/env
+      # Cargo: the Rust build tool and package manager
       - cargo --version
       - rustc --version
+      - rustdoc --version
       - ls ~/.cargo/bin
+
+  target-list:
+    cmds:
+      - rustc --print target-list
+      - rustup target add x86_64-unknown-linux-gnu
 
   brew-install: brew install rust
 
@@ -26,5 +32,7 @@ tasks:
     deps:
       - install
     cmds:
+      # Rustup: the Rust installer and version management tool
       - rustup update
+
   uninstall: rustup self uninstall
