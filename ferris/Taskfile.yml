@@ -1,0 +1,9 @@
+# https://taskfile.dev
+version: "3"
+tasks:
+  run: cargo run
+  # cargo run --package hello --bin hello
+  test: cargo test
+  build: cargo build --verbose
+  clean: cargo clean
+  install: cargo install --path .

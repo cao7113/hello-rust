@@ -4,9 +4,26 @@ tasks:
   play: open https://play.rust-lang.org/
   hub: open https://crates.io
   book: rustup doc --book
+  doc: rustup doc
   mod: rustup doc --std
 
   create-hello: cargo new hello
+
+  version:
+    cmds:
+      - |
+        source $HOME/.cargo/env
+        # Cargo: the Rust build tool and package manager
+        cargo --version
+        rustc --version
+        rustdoc --version
+        ls ~/.cargo/bin
+
+  targets:
+    desc: list all supported targets by rustc
+    cmds:
+      - rustc --print target-list
+      #- rustup target add x86_64-unknown-linux-gnu
 
   install:
     desc: install rust as https://www.rust-lang.org/learn/get-started in rustup way
@@ -14,19 +31,14 @@ tasks:
       - cargo --version
     cmds:
       - curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-      - source $HOME/.cargo/env
-      # Cargo: the Rust build tool and package manager
-      - cargo --version
-      - rustc --version
-      - rustdoc --version
-      - ls ~/.cargo/bin
+      - task: version
 
-  target-list:
-    cmds:
-      - rustc --print target-list
-      - rustup target add x86_64-unknown-linux-gnu
+  # VsCode Extentions
+  # rust-analyzer
 
-  brew-install: brew install rust
+  # xcode-select --install
+  # You will also need a linker, which is a program that Rust uses to join its compiled outputs into one file. It is likely you already have one. If you get linker errors, you should install a C compiler, which will typically include a linker. A C compiler is also useful because some common Rust packages depend on C code and will need a C compiler.
+  # Ubuntu, you can install the build-essential package
 
   update:
     deps:
@@ -34,5 +46,8 @@ tasks:
     cmds:
       # Rustup: the Rust installer and version management tool
       - rustup update
+      # rustup update stable
 
   uninstall: rustup self uninstall
+
+  # brew-install: brew install rust

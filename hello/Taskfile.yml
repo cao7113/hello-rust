@@ -1,7 +1,8 @@
 # https://taskfile.dev
 version: "3"
 tasks:
-  run: cargo run
-  test: cargo test
-  build: cargo build --verbose
-  clean: cargo clean
+  run: 
+    cmds:
+    - |
+      rustc ./main.rs
+      ./main
