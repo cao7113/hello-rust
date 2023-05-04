@@ -1,0 +1,12 @@
+# https://taskfile.dev
+version: "3"
+tasks:
+  # compile then run (in target/debug/trycar)
+  run: cargo run
+  build: cargo build
+  # compile it with optimizations.
+  rel: cargo build --release
+  # target/release/trycar
+
+  check: cargo check
+  create: cargo new trycar

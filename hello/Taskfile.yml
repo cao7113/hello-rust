@@ -6,3 +6,5 @@ tasks:
     - |
       rustc ./main.rs
       ./main
+
+  # TODO: build target to ubuntu on MacOS
