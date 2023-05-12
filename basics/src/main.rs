@@ -1,4 +1,8 @@
 fn main() {
+    // pri types
+    let i1 = 1u8;
+    assert_eq!(i1, 1);
+
     // Variables
     let x = 5;
 
