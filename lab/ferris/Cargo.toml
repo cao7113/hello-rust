@@ -1,5 +1,5 @@
 [package]
-name = "hello"
+name = "ferris"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,5 +9,5 @@ edition = "2021"
 #git-fetch-with-cli = true
 
 [dependencies]
-ferris-says = "0.2"
-
+# https://crates.io/crates/ferris-says
+ferris-says = "=0.3.1"

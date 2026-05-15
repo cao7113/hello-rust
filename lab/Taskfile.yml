@@ -1,0 +1,5 @@
+# https://taskfile.dev/usage/
+version: '3'
+tasks:
+  custom-cfg: rustc --cfg some_condition custom-cfg.rs && ./custom-cfg && rm ./custom-cfg
+  panic: rustc panic.rs -C panic=abort && ./panic && rm ./panic

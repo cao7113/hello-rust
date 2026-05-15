@@ -1,5 +1,5 @@
-# Rust
+# Hello Rust
 
-## Getting Started
+# Learn by example
 
-https://www.rust-lang.org/learn/get-started
+https://doc.rust-lang.org/rust-by-example/index.html

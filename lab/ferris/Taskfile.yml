@@ -1,0 +1,15 @@
+# https://taskfile.dev
+version: "3"
+tasks:
+  run: cargo r
+  run2: cargo run --package ferris --bin ferris
+  test: cargo test
+  build: cargo b --verbose
+  clean: cargo clean
+  install: cargo install --path .
+
+  # use package binary
+  fsays: |
+    # car install fsays
+    fsays 'Hello fellow Rustaceans!'
+    # fsays --width 12 'Hello fellow Rustaceans!'
